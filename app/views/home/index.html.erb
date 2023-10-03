@@ -1,68 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jason</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-</head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100 font-sans min-h-screen">
   <!-- Header Section -->
-  <header class="bg-white shadow-md py-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <a href="/" class="text-xl font-semibold text-gray-800">jasonmag</a>
-      <nav>
-        <a href="#" class="text-gray-600 hover:text-gray-800 px-3">Home</a>
-        <a href="#" class="text-gray-600 hover:text-gray-800 px-3">Blog</a>
-        <a href="#" class="text-gray-600 hover:text-gray-800 px-3">About</a>
-        <a href="#" class="text-gray-600 hover:text-gray-800 px-3">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <%= render 'shared/header' %>
 
   <!-- Hero Section -->
-  <section class="hero-section bg-cover bg-center text-gray-600 py-20">
-    <div class="container mx-auto text-center">
-      <h1 class="text-4xl font-semibold mb-4">Welcome to Your Personal Blog</h1>
-      <p class="text-lg mb-8">Sharing thoughts, ideas, and stories with the world.</p>
-      <a href="#" class="bg-white text-blue-600 font-semibold py-2 px-6 rounded-full hover:bg-blue-800 hover:text-white transition duration-300">Explore Now</a>
-    </div>
-  </section>
+  <%= render 'shared/hero' %>
 
   <!-- Blog Posts Section -->
-  <section class="py-16">
-    <div class="container mx-auto">
-      <h2 class="text-2xl font-semibold mb-8">Latest Blog Posts</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Placeholder for blog post cards -->
-        <div class="bg-white rounded-lg shadow-md p-6">
-          <img src="https://via.placeholder.com/400x250" alt="Blog Post Image" class="mb-4">
-          <h3 class="text-xl font-semibold mb-2">Blog Post Title</h3>
-          <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non efficitur libero.</p>
-          <a href="#" class="text-blue-600 hover:underline">Read More</a>
-        </div>
-        <div class="bg-white rounded-lg shadow-md p-6">
-          <img src="https://via.placeholder.com/400x250" alt="Blog Post Image" class="mb-4">
-          <h3 class="text-xl font-semibold mb-2">Blog Post Title</h3>
-          <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non efficitur libero.</p>
-          <a href="#" class="text-blue-600 hover:underline">Read More</a>
-        </div>
-        <div class="bg-white rounded-lg shadow-md p-6">
-          <img src="https://via.placeholder.com/400x250" alt="Blog Post Image" class="mb-4">
-          <h3 class="text-xl font-semibold mb-2">Blog Post Title</h3>
-          <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non efficitur libero.</p>
-          <a href="#" class="text-blue-600 hover:underline">Read More</a>
-        </div>
-        <!-- Repeat this block for other blog post cards -->
-      </div>
-    </div>
-  </section>
+  <%= render 'shared/blog_posts' %>
 
   <!-- Footer Section -->
-  <footer class="bg-gray-800 text-white py-6">
-    <div class="container mx-auto text-center">
-      <p>&copy; 2023 Your Blog. All rights reserved.</p>
-    </div>
-  </footer>
+  <%= render 'shared/footer' %>
 </body>
-</html>
