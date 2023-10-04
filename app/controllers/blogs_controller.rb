@@ -1,10 +1,10 @@
 class BlogsController < ApplicationController
 
   def index
-    @blog = Blog.all
+    @blogs = Blog.limit(10) # TODO paginate
   end
 
-  def def create
+  def create
     @blog = Blog.new(blog_params)
 
     if @blog.save
@@ -17,6 +17,6 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :body)
+    params.permit(:title,:image,:body)
   end
 end

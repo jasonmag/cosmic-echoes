@@ -11,7 +11,7 @@
   </div>
 
   <!-- Blog Posts Section -->
-  <%= render 'shared/blog_posts' %>
+  <%= render partial: 'shared/blog_posts', locals: { blogs: @blogs, num_of_blog: 10 } %>
 
   <!-- Footer Section -->
   <%= render 'shared/footer' %>
