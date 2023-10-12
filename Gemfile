@@ -77,3 +77,5 @@ end
 gem "kamal", "~> 0.16.0"
 
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "carrierwave", "~> 3.0"
