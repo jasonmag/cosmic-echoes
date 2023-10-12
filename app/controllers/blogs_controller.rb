@@ -8,6 +8,17 @@ class BlogsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @blog.update(blog_params)
+      redirect_to @blog, notice: 'Blog post was successfully update.'
+    else
+      render :edit
+    end
+  end
+
   def create
     @blog = Blog.new(blog_params)
 
@@ -21,7 +32,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.permit(:title,:image,:body)
+    params.require(:blog).permit(:title,:image,:body)
   end
 
   def set_blog
