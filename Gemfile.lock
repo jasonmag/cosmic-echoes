@@ -254,6 +254,7 @@ DEPENDENCIES
   carrierwave (~> 3.0)
   cssbundling-rails
   debug
+  image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
   kamal (~> 0.16.0)

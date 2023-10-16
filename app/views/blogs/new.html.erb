@@ -1,22 +1,3 @@
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('insert-code-button').addEventListener('click', function() {
-      var codeSnippet = '<pre><code>// Your code here</code></pre>';
-      var textarea = document.getElementById('blog_body'); // Replace 'blog_body' with the actual ID of your textarea
-
-      // Insert code at the current cursor position
-      var startPos = textarea.selectionStart;
-      var endPos = textarea.selectionEnd;
-      textarea.value = textarea.value.substring(0, startPos) + codeSnippet + textarea.value.substring(endPos, textarea.value.length);
-
-      // Set cursor position after inserted code
-      var newCursorPos = startPos + codeSnippet.length;
-      textarea.setSelectionRange(newCursorPos, newCursorPos);
-    });
-  });
-</script>
-
 <body class="bg-gray-100 font-sans min-h-screen flex flex-col items-center justify-center">
   <!-- Header Section -->
   <%= render 'shared/header' %>
@@ -37,9 +18,8 @@
         </div>
   
         <div class="col-span-full">
-          <%= form.label :body, class: "block text-sm font-medium leading-6 text-gray-900 text-left" %>
-          <%= form.text_area "blog[body]", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6", rows: 5, as: :html, id: "blog_body"  %>
-          <button type="button" id="insert-code-button" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">Insert Code Snippet</button>
+          <%= form.label :content, class: "block text-sm font-medium leading-6 text-gray-900 text-left" %>
+          <%= form.rich_text_area "blog[content]", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6", rows: 5 %>
         </div>
       </div>
   
