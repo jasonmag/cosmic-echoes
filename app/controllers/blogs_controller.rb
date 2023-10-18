@@ -15,8 +15,14 @@ class BlogsController < ApplicationController
     if @blog.update(blog_params)
       redirect_to @blog, notice: 'Blog post was successfully update.'
     else
+      flash[:update] = 'Blog creation failed'
+      flash[:error] = @blog.errors.full_messages
       render :edit
     end
+  end
+
+  def new
+    @blog = Blog.new
   end
 
   def create
@@ -25,6 +31,8 @@ class BlogsController < ApplicationController
     if @blog.save
       redirect_to blogs_path, notice: 'Blog created successfully'
     else
+      flash[:alert] = 'Blog creation failed'
+      flash[:error] = @blog.errors # TODO assign errors into key value pair with full messages
       render :new
     end
   end
