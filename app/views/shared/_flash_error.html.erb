@@ -1,0 +1,5 @@
+<%= turbo_frame_tag 'flash_error' do %>
+  <% if defined?(key) && flash[:error].present? %>
+    <p class="text-red-500 text-xs mt-1 text-left"><%= flash[:error][key] %></p>
+  <% end %>
+<% end %>

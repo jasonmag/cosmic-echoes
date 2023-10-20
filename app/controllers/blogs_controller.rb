@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_variables, only: [:create, :new]
 
   def index
     @blogs = Blog.limit(10) # TODO paginate
@@ -29,11 +30,22 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
 
     if @blog.save
-      redirect_to blogs_path, notice: 'Blog created successfully'
+      flash[:success] = "Blog post created successfully!"
+      render turbo_stream: [
+        turbo_stream.append('blog', @blog),
+        turbo_stream.update('flash', partial: 'shared/flash')
+      ]
     else
       flash[:alert] = 'Blog creation failed'
-      flash[:error] = @blog.errors # TODO assign errors into key value pair with full messages
-      render :new
+      flash[:error] = @blog.errors.messages
+
+      puts 'ERRORS HERE...'
+      puts flash.inspect
+      render turbo_stream: [
+        turbo_stream.replace('new_blog_form', partial: 'shared/blog_form'),
+        turbo_stream.update('flash_error', partial: 'shared/flash_error'),
+        turbo_stream.update('flash', partial: 'shared/flash')
+      ]
     end
   end
 
@@ -50,5 +62,9 @@ class BlogsController < ApplicationController
       flash[:alert] = "Blog not found."
       redirect_to blogs_path
     end
+  end
+
+  def set_variables
+    flash.clear
   end
 end
