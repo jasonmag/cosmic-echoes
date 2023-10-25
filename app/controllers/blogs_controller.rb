@@ -38,8 +38,6 @@ class BlogsController < ApplicationController
     else
       flash[:alert] = @blog.errors.full_messages
 
-      puts 'ERRORS HERE...'
-      puts flash.inspect
       render turbo_stream: [
         turbo_stream.replace('new_blog_form', partial: 'shared/blog_form'),
         turbo_stream.update('flash_error', partial: 'shared/flash_error'),
