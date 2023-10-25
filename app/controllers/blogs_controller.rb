@@ -17,7 +17,7 @@ class BlogsController < ApplicationController
       redirect_to @blog, notice: 'Blog post was successfully update.'
     else
       flash[:update] = 'Blog creation failed'
-      flash[:error] = @blog.errors.full_messages
+      flash[:alert] = @blog.errors.full_messages
       render :edit
     end
   end
@@ -36,8 +36,7 @@ class BlogsController < ApplicationController
         turbo_stream.update('flash', partial: 'shared/flash')
       ]
     else
-      flash[:alert] = 'Blog creation failed'
-      flash[:error] = @blog.errors.messages
+      flash[:alert] = @blog.errors.full_messages
 
       puts 'ERRORS HERE...'
       puts flash.inspect
