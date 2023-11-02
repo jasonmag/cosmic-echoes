@@ -6,7 +6,12 @@
       <a href="/blogs" class="text-gray-600 hover:text-gray-800 px-3">Blog</a>
       <a href="#" class="text-gray-600 hover:text-gray-800 px-3">About</a>
       <a href="#" class="text-gray-600 hover:text-gray-800 px-3">Contact</a>
-      <a href="/users/sign_in" class="text-gray-600 hover:text-gray-800 px-3">Login</a>
+      <% if user_signed_in? %>
+        <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "text-gray-600 hover:text-gray-800 px-3" %>
+        
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: "text-gray-600 hover:text-gray-800 px-3" %>
+      <% end %>
     </nav>
   </div>
 </header>
