@@ -74,10 +74,11 @@ group :test do
   gem "webdrivers"
 end
 
-gem "kamal", "~> 0.16.0"
 
 gem "tailwindcss-rails", "~> 2.0"
 
 #image uploader
 gem "carrierwave", "~> 3.0" 
 gem "devise", "~> 4.9"
+
+gem "kamal", "~> 1.1"
