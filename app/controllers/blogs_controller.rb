@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :new, :update, :edit, :destroy]
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :new, :update, :edit]
+  before_action :set_blog, only: [:show, :edit, :update]
   before_action :set_variables, only: [:create, :new]
 
   def index
@@ -31,11 +31,7 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
 
     if @blog.save
-      flash[:success] = "Blog post created successfully!"
-      render turbo_stream: [
-        turbo_stream.append('blog', @blog),
-        turbo_stream.update('flash', partial: 'shared/flash')
-      ]
+      redirect_to @blog, notice: 'Blog post was successfully created.'
     else
       flash[:alert] = @blog.errors.full_messages
 
