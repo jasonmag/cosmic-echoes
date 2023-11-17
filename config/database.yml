@@ -84,3 +84,4 @@ production:
   database: jasonmag_production
   username: jasonmag
   password: <%= ENV["JASONMAG_DATABASE_PASSWORD"] %>
+  host: <%= ENV["DB_HOST"] %>
