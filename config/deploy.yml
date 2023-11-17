@@ -47,7 +47,7 @@ accessories:
   db:
     image: postgres:15
     host: 54.179.163.156
-    post: 5432
+    port: 5432
     env:
       clear:
         POSTGRES_USER: "jasonmag"
